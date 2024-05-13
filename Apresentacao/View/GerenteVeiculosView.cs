@@ -1,4 +1,6 @@
 namespace DesafioDioEstacionamento.View;
+
+using DesafioDioEstacionamento.Lib.View;
 using DesafioDioEstacionamento.ViewModel;
 using DesafioDioEstacionamento.Model;
 using DesafioDioEstacionamento.Infra.Utils;

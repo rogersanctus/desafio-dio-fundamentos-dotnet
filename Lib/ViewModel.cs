@@ -1,6 +1,6 @@
-namespace DesafioDioEstacionamento.ViewModel;
+namespace DesafioDioEstacionamento.Lib.ViewModel;
 
-using DesafioDioEstacionamento.View;
+using DesafioDioEstacionamento.Lib.View;
 
 public class ViewModelBase
 {

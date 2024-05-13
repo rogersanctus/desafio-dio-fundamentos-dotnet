@@ -1,5 +1,6 @@
 namespace DesafioDioEstacionamento.View;
 
+using DesafioDioEstacionamento.Lib.View;
 using DesafioDioEstacionamento.Infra.Utils;
 using DesafioDioEstacionamento.Model;
 using DesafioDioEstacionamento.ViewModel;
@@ -81,7 +82,7 @@ public class EstacionamentoView : ViewBase
 
     // viewModel.SetPrecoInicial(precoInicial);
     var viewModel = (EstacionamentoViewModel)this.ViewModel;
-    viewModel.AtualizarPrecoicial(precoInicial);
+    viewModel.AtualizarPrecoInicial(precoInicial);
   }
 
   public void CadastrarVeiculo()

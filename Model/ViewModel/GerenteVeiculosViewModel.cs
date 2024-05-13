@@ -1,5 +1,6 @@
 namespace DesafioDioEstacionamento.ViewModel;
 
+using DesafioDioEstacionamento.Lib.ViewModel;
 using System.Collections.ObjectModel;
 using DesafioDioEstacionamento.Model;
 
