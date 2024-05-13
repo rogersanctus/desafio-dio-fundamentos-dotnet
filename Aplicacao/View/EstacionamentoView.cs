@@ -1,5 +1,6 @@
 namespace DesafioDioEstacionamento.View;
 
+using DesafioDioEstacionamento.Infra.Utils;
 using DesafioDioEstacionamento.Model;
 using DesafioDioEstacionamento.ViewModel;
 
@@ -14,58 +15,58 @@ public class EstacionamentoView : ViewBase
 
   override public void Notificar(string evento, string? argumento)
   {
-    Console.WriteLine();
+    ConsoleWriter.WriteLine();
 
     switch (evento)
     {
       case "AdicionarVeiculo:Sucesso":
-        Console.WriteLine("veículo adicionado com sucesso");
+        ConsoleWriter.WriteLine("veículo adicionado com sucesso");
         break;
       case "AdicionarVeiculo:Erro":
-        Console.WriteLine("Erro ao adicionar veículo.");
+        ConsoleWriter.WriteLine("Erro ao adicionar veículo.", ConsoleColor.Red);
 
         if (argumento != null)
         {
-          Console.WriteLine(argumento);
+          ConsoleWriter.WriteLine(argumento, ConsoleColor.Red);
         }
         break;
       case "RemoverVeiculo:Sucesso":
         if (decimal.TryParse(argumento, out decimal custo))
         {
 
-          Console.WriteLine("veículo removido com sucesso");
-          Console.WriteLine($"Total a pagar pelo estacionamento: {custo:N}");
+          ConsoleWriter.WriteLine("veículo removido com sucesso");
+          ConsoleWriter.WriteLine($"Total a pagar pelo estacionamento: {custo:N}");
         }
         else
         {
-          Console.WriteLine("Formato de custo inválido.");
+          ConsoleWriter.WriteLine("Formato de custo inválido.", ConsoleColor.Red);
         }
         break;
       case "RemoverVeiculo:Erro":
-        Console.WriteLine("Erro ao remover veículo.");
+        ConsoleWriter.WriteLine("Erro ao remover veículo.", ConsoleColor.Red);
 
         if (argumento != null)
         {
-          Console.WriteLine(argumento);
+          ConsoleWriter.WriteLine(argumento, ConsoleColor.Red);
         }
         break;
       case "AtualizarPrecoInicial:Sucesso":
-        Console.WriteLine("Preço atualizado com sucesso");
+        ConsoleWriter.WriteLine("Preço atualizado com sucesso");
         break;
     }
 
-    Console.WriteLine();
+    ConsoleWriter.WriteLine();
   }
 
   public void ConfigurarPrecoInicial()
   {
-    Console.WriteLine("Configurando preco inicial");
+    ConsoleWriter.WriteLine("Configurando preco inicial");
     var precoInicialStr = Console.ReadLine();
 
     if (string.IsNullOrEmpty(precoInicialStr))
     {
-      Console.WriteLine("O preço inicial não pode ser vazio.");
-      Console.WriteLine();
+      ConsoleWriter.WriteLine("O preço inicial não pode ser vazio.", ConsoleColor.Red);
+      ConsoleWriter.WriteLine();
       return;
     }
 
@@ -73,8 +74,8 @@ public class EstacionamentoView : ViewBase
 
     if (!decimal.TryParse(precoInicialStr, out precoInicial))
     {
-      Console.WriteLine("Preço inicial inválido");
-      Console.WriteLine();
+      ConsoleWriter.WriteLine("Preço inicial inválido", ConsoleColor.Red);
+      ConsoleWriter.WriteLine();
       return;
     }
 
@@ -85,7 +86,7 @@ public class EstacionamentoView : ViewBase
 
   public void CadastrarVeiculo()
   {
-    Console.WriteLine("Cadastrando veículo");
+    ConsoleWriter.WriteLine("Cadastrando veículo");
 
     Console.Write("Informe o tipo de veículo: ");
     var tipoVeiculo = Console.ReadLine();
@@ -95,7 +96,7 @@ public class EstacionamentoView : ViewBase
 
     if (string.IsNullOrEmpty(tipoVeiculo) || string.IsNullOrEmpty(placa))
     {
-      Console.WriteLine("Tipo de veículo e placa devem ser informados");
+      ConsoleWriter.WriteLine("Tipo de veículo e placa devem ser informados", ConsoleColor.Red);
       return;
     }
 
@@ -111,7 +112,7 @@ public class EstacionamentoView : ViewBase
     {
       if (ex is ArgumentException || ex is ArgumentNullException)
       {
-        Console.WriteLine("Tipo de veículo inválido");
+        ConsoleWriter.WriteLine("Tipo de veículo inválido", ConsoleColor.Red);
       }
 
       throw;
@@ -121,7 +122,7 @@ public class EstacionamentoView : ViewBase
 
   public void RemoverVeiculo()
   {
-    Console.WriteLine("Removendo veículo");
+    ConsoleWriter.WriteLine("Removendo veículo");
 
     Console.Write("Informe o tempo em minutos em que o veículo ficou estacionado: ");
     var tempoEstacionamentoMinutos = Console.ReadLine();
@@ -135,7 +136,7 @@ public class EstacionamentoView : ViewBase
 
       if (string.IsNullOrEmpty(placa))
       {
-        Console.WriteLine("Favor informar a placa do veículo");
+        ConsoleWriter.WriteLine("Favor informar a placa do veículo", ConsoleColor.Yellow);
         return;
       }
 
@@ -144,13 +145,13 @@ public class EstacionamentoView : ViewBase
     }
     catch (FormatException)
     {
-      Console.WriteLine("Formato do tempo de estacionamento inválido. O valor precisa ser um número inteiro.");
+      ConsoleWriter.WriteLine("Formato do tempo de estacionamento inválido. O valor precisa ser um número inteiro.", ConsoleColor.Red);
     }
   }
 
   public void ListarVeiculos()
   {
-    Console.WriteLine("Listando veículos");
+    ConsoleWriter.WriteLine("Listando veículos");
     var viewModel = (EstacionamentoViewModel)this.ViewModel;
 
     var veiculos = viewModel.GetListVeiculos();
@@ -159,14 +160,14 @@ public class EstacionamentoView : ViewBase
     {
       foreach (var veiculo in veiculos)
       {
-        Console.WriteLine($"Tipo: {veiculo.Tipo}  - Placa: {veiculo.Placa}");
+        ConsoleWriter.WriteLine($"Tipo: {veiculo.Tipo}  - Placa: {veiculo.Placa}");
       }
     }
     else
     {
-      Console.WriteLine("Nenhum veículo no estacionamento");
+      ConsoleWriter.WriteLine("Nenhum veículo no estacionamento", ConsoleColor.Cyan);
     }
 
-    Console.WriteLine();
+    ConsoleWriter.WriteLine();
   }
 }

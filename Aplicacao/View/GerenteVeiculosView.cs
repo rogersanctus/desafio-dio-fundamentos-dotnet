@@ -1,6 +1,7 @@
 namespace DesafioDioEstacionamento.View;
 using DesafioDioEstacionamento.ViewModel;
 using DesafioDioEstacionamento.Model;
+using DesafioDioEstacionamento.Infra.Utils;
 
 public class GerenteVeiculosView : ViewBase
 {
@@ -16,41 +17,41 @@ public class GerenteVeiculosView : ViewBase
     switch (evento)
     {
       case "AtualizarVeiculo:Sucesso":
-        Console.WriteLine("Dados do Veículo atualizados com sucesso");
+        ConsoleWriter.WriteLine("Dados do Veículo atualizados com sucesso");
         break;
 
       case "AtualizarVeiculo:Erro":
-        Console.WriteLine("Erro ao atualizar dados do veículo");
+        ConsoleWriter.WriteLine("Erro ao atualizar dados do veículo", ConsoleColor.Red);
         if (argumento != null)
         {
-          Console.WriteLine(argumento);
+          ConsoleWriter.WriteLine(argumento, ConsoleColor.Red);
         }
         break;
     }
 
-    Console.WriteLine();
+    ConsoleWriter.WriteLine();
   }
 
   public void ConfigurarTipoVeiculo()
   {
-    Console.WriteLine("Configurando tipo de veículo");
+    ConsoleWriter.WriteLine("Configurando tipo de veículo");
 
     var viewModel = (GerenteVeiculosViewModel)ViewModel;
     var veiculosNaoInicializados = viewModel.GetVeiculosNaoInicializados().ToList();
 
     if (veiculosNaoInicializados.Count > 0)
     {
-      Console.WriteLine("No momento, estes são os veículos que precisam ser inicializados:");
-      veiculosNaoInicializados.ForEach(veiculo => Console.WriteLine($"Tipo: {(int)veiculo.Tipo} - Nome: {veiculo.Nome}, Preço por Hora: {veiculo.PrecoPorHora}"));
-      Console.WriteLine();
+      ConsoleWriter.WriteLine("No momento, estes são os veículos que precisam ser inicializados:", ConsoleColor.Cyan);
+      veiculosNaoInicializados.ForEach(veiculo => ConsoleWriter.WriteLine($"Tipo: {(int)veiculo.Tipo} - Nome: {veiculo.Nome}, Preço por Hora: {veiculo.PrecoPorHora}", ConsoleColor.Cyan));
+      ConsoleWriter.WriteLine();
     }
 
-    Console.Write("Informe o Tipo de veículo para atualizar: ");
+    ConsoleWriter.Write("Informe o Tipo de veículo para atualizar: ");
     var tipo = Console.ReadLine();
 
     if (string.IsNullOrEmpty(tipo))
     {
-      Console.WriteLine("O Tipo de veículo não pode ser vazio");
+      ConsoleWriter.WriteLine("O Tipo de veículo não pode ser vazio", ConsoleColor.Red);
       return;
     }
 
@@ -64,19 +65,19 @@ public class GerenteVeiculosView : ViewBase
     {
       if (ex is ArgumentException || ex is OverflowException)
       {
-        Console.WriteLine("Tipo de veículo inválido.");
+        ConsoleWriter.WriteLine("Tipo de veículo inválido.", ConsoleColor.Red);
         return;
       }
 
       throw;
     }
 
-    Console.Write("Informe o novo preço por hora: ");
+    ConsoleWriter.Write("Informe o novo preço por hora: ");
     var precoPorHoraStr = Console.ReadLine();
 
     if (string.IsNullOrEmpty(precoPorHoraStr))
     {
-      Console.WriteLine("O Preço por Hora não pode ser vazio");
+      ConsoleWriter.WriteLine("O Preço por Hora não pode ser vazio", ConsoleColor.Red);
       return;
     }
 
@@ -84,7 +85,7 @@ public class GerenteVeiculosView : ViewBase
 
     if (!decimal.TryParse(precoPorHoraStr, out precoPorHora))
     {
-      Console.WriteLine("Preço por Hora inválido");
+      ConsoleWriter.WriteLine("Preço por Hora inválido", ConsoleColor.Red);
       return;
     }
 

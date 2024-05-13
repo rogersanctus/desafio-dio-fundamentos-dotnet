@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using DesafioDioEstacionamento.Infra.Utils;
 using DesafioDioEstacionamento.Model;
 using DesafioDioEstacionamento.View;
 using DesafioDioEstacionamento.ViewModel;
@@ -15,7 +16,7 @@ bool sair = false;
 var decimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
 Console.WriteLine();
-Console.WriteLine($"Importante: O separador decimal para valores de preço é o caractere: '{decimalSeparator}'");
+ConsoleWriter.WriteLine($"Importante: O separador decimal para valores de preço é o caractere: '{decimalSeparator}'", ConsoleColor.Cyan);
 Console.WriteLine();
 
 
@@ -55,7 +56,7 @@ while (!sair)
       estacionamentoView.ListarVeiculos();
       break;
     default:
-      Console.WriteLine("Opção Inválida");
+      ConsoleWriter.WriteLine("Opção Inválida", ConsoleColor.Red);
       break;
   }
 }
