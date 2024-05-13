@@ -34,7 +34,7 @@ public class EstacionamentoView : ViewBase
         {
 
           Console.WriteLine("veículo removido com sucesso");
-          Console.WriteLine($"Total a pagar pelo estacionamento: {custo}");
+          Console.WriteLine($"Total a pagar pelo estacionamento: {custo:N}");
         }
         else
         {
