@@ -68,6 +68,11 @@ public class GerenteDadosVeiculo
   {
     return this.tiposVeiculo.FindAll((dadosVeiculo) => !dadosVeiculo.Inicializado);
   }
+
+  public List<DadosVeiculo> GetVeiculos()
+  {
+    return this.tiposVeiculo;
+  }
 }
 
 public class Veiculo

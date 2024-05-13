@@ -3,6 +3,7 @@ namespace DesafioDioEstacionamento.ViewModel;
 using DesafioDioEstacionamento.Lib.ViewModel;
 using System.Collections.ObjectModel;
 using DesafioDioEstacionamento.Model;
+using System.Collections.Generic;
 
 public class GerenteVeiculosViewModel : ViewModelBase
 {
@@ -31,4 +32,8 @@ public class GerenteVeiculosViewModel : ViewModelBase
     }
   }
 
+  public List<DadosVeiculo> GetVeiculos()
+  {
+      return this.gerenteVeiculos.GetVeiculos();
+  }
 }

@@ -1,7 +1,7 @@
 namespace DesafioDioEstacionamento.View;
 
+using DesafioDioEstacionamento.Lib.UI;
 using DesafioDioEstacionamento.Lib.View;
-using DesafioDioEstacionamento.Infra.Utils;
 using DesafioDioEstacionamento.Model;
 using DesafioDioEstacionamento.ViewModel;
 
@@ -61,28 +61,14 @@ public class EstacionamentoView : ViewBase
 
   public void ConfigurarPrecoInicial()
   {
-    ConsoleWriter.WriteLine("Configurando preco inicial");
-    var precoInicialStr = Console.ReadLine();
+    decimal? precoInicial = CommonView.ConfigurarPrecoInicial();
 
-    if (string.IsNullOrEmpty(precoInicialStr))
+    if (precoInicial != null)
     {
-      ConsoleWriter.WriteLine("O preço inicial não pode ser vazio.", ConsoleColor.Red);
-      ConsoleWriter.WriteLine();
-      return;
+      // viewModel.SetPrecoInicial(precoInicial);
+      var viewModel = (EstacionamentoViewModel)this.ViewModel;
+      viewModel.AtualizarPrecoInicial((decimal)precoInicial);
     }
-
-    decimal precoInicial;
-
-    if (!decimal.TryParse(precoInicialStr, out precoInicial))
-    {
-      ConsoleWriter.WriteLine("Preço inicial inválido", ConsoleColor.Red);
-      ConsoleWriter.WriteLine();
-      return;
-    }
-
-    // viewModel.SetPrecoInicial(precoInicial);
-    var viewModel = (EstacionamentoViewModel)this.ViewModel;
-    viewModel.AtualizarPrecoInicial(precoInicial);
   }
 
   public void CadastrarVeiculo()

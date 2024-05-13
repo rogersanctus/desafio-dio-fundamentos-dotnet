@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lib\Lib.csproj" />
-    <ProjectReference Include="..\Infra\Infra.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 

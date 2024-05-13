@@ -49,10 +49,4 @@ public class EstacionamentoViewModel : ViewModelBase
   {
     return this.estacionamento.ListarVeiculos().AsReadOnly();
   }
-
-  internal void AtualizarPrecoicial(decimal precoInicial)
-  {
-    this.estacionamento.SetPrecoInicial(precoInicial);
-    this.NotificarView("AtualizarPrecoInicial:Sucesso");
-  }
 }

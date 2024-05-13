@@ -1,4 +1,4 @@
-namespace DesafioDioEstacionamento.Infra.Utils;
+namespace DesafioDioEstacionamento.Lib.UI;
 
 public static class ConsoleWriter
 {

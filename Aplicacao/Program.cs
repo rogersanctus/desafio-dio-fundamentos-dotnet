@@ -1,29 +1,39 @@
-﻿using System.Globalization;
-using DesafioDioEstacionamento.Infra.Utils;
+using System.Globalization;
+using DesafioDioEstacionamento.Lib.UI;
 using DesafioDioEstacionamento.Model;
 using DesafioDioEstacionamento.View;
 using DesafioDioEstacionamento.ViewModel;
 
+
 var gerenteVeiculos = new GerenteDadosVeiculo();
 var estacionamentoViewModel = new EstacionamentoViewModel(gerenteVeiculos);
-var estacionamentoView = new EstacionamentoView(estacionamentoViewModel);
 var gerenteVeiculosViewModel = new GerenteVeiculosViewModel(gerenteVeiculos);
+var configuracaoInicialViewModel = new ConfiguracaoInicialViewModel(gerenteVeiculosViewModel, estacionamentoViewModel);
+
+var configuracaoInicialView = new ConfiguracaoInicialView(configuracaoInicialViewModel);
+var estacionamentoView = new EstacionamentoView(estacionamentoViewModel);
 var gerenteVeiculosView = new GerenteVeiculosView(gerenteVeiculosViewModel);
-// var estacionamento = new Estacionamento(gerenteVeiculos);
 
 bool sair = false;
 
 var decimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
+Console.Clear();
+
+Console.WriteLine("Controle de Estacionamento");
+Console.WriteLine("==========================");
+
 Console.WriteLine();
 ConsoleWriter.WriteLine($"Importante: O separador decimal para valores de preço é o caractere: '{decimalSeparator}'", ConsoleColor.Cyan);
 Console.WriteLine();
 
+configuracaoInicialView.ConfigurarEstacionamento();
+
 
 while (!sair)
 {
-  Console.WriteLine("Controle de Estacionamento");
-  Console.WriteLine("==========================");
+  Console.WriteLine("Menu Principal");
+  Console.WriteLine("---");
 
   Console.WriteLine("1 - Configurar preco inicial");
   Console.WriteLine("2 - Configurar veículo");
