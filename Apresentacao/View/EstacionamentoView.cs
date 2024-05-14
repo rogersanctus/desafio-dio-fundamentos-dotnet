@@ -26,7 +26,7 @@ public class EstacionamentoView : ViewBase
     switch (evento)
     {
       case "AdicionarVeiculo:Sucesso":
-        ConsoleWriter.WriteLine("veículo adicionado com sucesso");
+        ConsoleWriter.WriteLine("Veículo adicionado com sucesso", ConsoleColor.Green);
         break;
       case "AdicionarVeiculo:Erro":
         ConsoleWriter.WriteLine("Erro ao adicionar veículo.", ConsoleColor.Red);
@@ -40,8 +40,8 @@ public class EstacionamentoView : ViewBase
         if (decimal.TryParse(argumento, out decimal custo))
         {
 
-          ConsoleWriter.WriteLine("veículo removido com sucesso");
-          ConsoleWriter.WriteLine($"Total a pagar pelo estacionamento: {custo:N}");
+          ConsoleWriter.WriteLine("Veículo removido com sucesso", ConsoleColor.Green);
+          ConsoleWriter.WriteLine($"Total a pagar pelo estacionamento: {custo:N}", ConsoleColor.Green);
         }
         else
         {
@@ -57,7 +57,7 @@ public class EstacionamentoView : ViewBase
         }
         break;
       case "AtualizarPrecoInicial:Sucesso":
-        ConsoleWriter.WriteLine("Preço atualizado com sucesso");
+        ConsoleWriter.WriteLine("Preço atualizado com sucesso", ConsoleColor.Green);
         break;
     }
 

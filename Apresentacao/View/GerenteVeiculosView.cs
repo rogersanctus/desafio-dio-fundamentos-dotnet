@@ -18,11 +18,12 @@ public class GerenteVeiculosView : ViewBase
     switch (evento)
     {
       case "AtualizarVeiculo:Sucesso":
-        ConsoleWriter.WriteLine("Dados do Veículo atualizados com sucesso");
+        ConsoleWriter.WriteLine("Dados do Veículo atualizados com sucesso", ConsoleColor.Green);
         break;
 
       case "AtualizarVeiculo:Erro":
         ConsoleWriter.WriteLine("Erro ao atualizar dados do veículo", ConsoleColor.Red);
+
         if (argumento != null)
         {
           ConsoleWriter.WriteLine(argumento, ConsoleColor.Red);
