@@ -59,6 +59,11 @@ public class GerenteDadosVeiculo
   {
     int index = (int)tipo;
 
+    if (index < 0 || index >= this.tiposVeiculo.Count)
+    {
+      return null;
+    }
+
     DadosVeiculo? dados = this.tiposVeiculo[index];
 
     return dados;
