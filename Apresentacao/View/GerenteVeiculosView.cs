@@ -13,10 +13,7 @@ public class GerenteVeiculosView : ViewBase
 
   private GerenteVeiculosViewModel _viewModel
   {
-    get
-    {
-      return (GerenteVeiculosViewModel)this.ViewModel;
-    }
+    get => (GerenteVeiculosViewModel)this.ViewModel;
   }
 
   public override void Notificar(string evento, string? argumento = null)

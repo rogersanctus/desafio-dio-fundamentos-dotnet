@@ -16,10 +16,7 @@ public class ConfiguracaoInicialViewModel : ViewModelBase
 
   public bool IsDadosVeiculosInicializados
   {
-    get
-    {
-      return this.gerenteVeiculosViewModel.GetVeiculosNaoInicializados().Count == 0;
-    }
+    get => this.gerenteVeiculosViewModel.GetVeiculosNaoInicializados().Count == 0;
   }
 
   public List<DadosVeiculo> GetDadosVeiculos()

@@ -11,10 +11,7 @@ public class Estacionamento
 
   private bool Inicializado
   {
-    get
-    {
-      return this.precoInicial != null && this.gerenteVeiculos.Inicializado;
-    }
+    get => this.precoInicial != null && this.gerenteVeiculos.Inicializado;
   }
 
   public Estacionamento(GerenteDadosVeiculo gerenteVeiculos)

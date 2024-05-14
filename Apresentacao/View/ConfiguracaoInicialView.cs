@@ -10,10 +10,7 @@ public class ConfiguracaoInicialView : ViewBase
 {
   private ConfiguracaoInicialViewModel _viewModel
   {
-    get
-    {
-      return (ConfiguracaoInicialViewModel)this.ViewModel;
-    }
+    get => (ConfiguracaoInicialViewModel)this.ViewModel;
   }
 
   public ConfiguracaoInicialView(ViewModelBase viewModel) : base(viewModel)

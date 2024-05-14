@@ -26,10 +26,7 @@ public class GerenteDadosVeiculo
   private List<DadosVeiculo> tiposVeiculo;
   public bool Inicializado
   {
-    get
-    {
-      return this.tiposVeiculo.All(inicializado => inicializado.Inicializado);
-    }
+    get => this.tiposVeiculo.All(inicializado => inicializado.Inicializado);
   }
 
   public GerenteDadosVeiculo()

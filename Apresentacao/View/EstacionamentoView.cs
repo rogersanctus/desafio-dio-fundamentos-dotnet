@@ -13,10 +13,7 @@ public class EstacionamentoView : ViewBase
 
   private EstacionamentoViewModel _viewModel
   {
-    get
-    {
-      return (EstacionamentoViewModel)this.ViewModel;
-    }
+    get => (EstacionamentoViewModel)this.ViewModel;
   }
 
   override public void Notificar(string evento, string? argumento)
