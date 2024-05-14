@@ -6,6 +6,7 @@ using DesafioDioEstacionamento.Model;
 
 public class EstacionamentoViewModel : ViewModelBase
 {
+  /// TODO: implementar saída de fluxo durante operação de remoção de veículo quando não há veículos estacionados
   private Estacionamento estacionamento;
 
   public EstacionamentoViewModel(GerenteDadosVeiculo gerenteVeiculos)
@@ -50,7 +51,7 @@ public class EstacionamentoViewModel : ViewModelBase
     }
   }
 
-  public ReadOnlyCollection<Veiculo> GetListVeiculos()
+  public ReadOnlyCollection<Veiculo> GetListaVeiculos()
   {
     return this.estacionamento.ListarVeiculos().AsReadOnly();
   }

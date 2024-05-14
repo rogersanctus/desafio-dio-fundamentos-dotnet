@@ -157,7 +157,7 @@ public class EstacionamentoView : ViewBase
 
     var viewModel = (EstacionamentoViewModel)this.ViewModel;
 
-    var veiculos = viewModel.GetListVeiculos();
+    var veiculos = viewModel.GetListaVeiculos();
 
     if (veiculos.Count > 0)
     {
