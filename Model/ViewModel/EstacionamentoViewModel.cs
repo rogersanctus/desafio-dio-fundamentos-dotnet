@@ -19,6 +19,11 @@ public class EstacionamentoViewModel : ViewModelBase
     this.NotificarView("AtualizarPrecoInicial:Sucesso");
   }
 
+  public decimal GetPrecoInicial()
+  {
+    return this.estacionamento.GetPrecoInicial();
+  }
+
   public void CadastrarVeiculo(Veiculo veiculo)
   {
     try

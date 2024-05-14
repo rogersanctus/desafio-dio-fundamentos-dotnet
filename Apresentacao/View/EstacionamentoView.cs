@@ -7,11 +7,16 @@ using DesafioDioEstacionamento.ViewModel;
 
 public class EstacionamentoView : ViewBase
 {
-
-  /// TODO: Implementar exibição do preço Inicial
-
   public EstacionamentoView(EstacionamentoViewModel viewModel) : base(viewModel)
   {
+  }
+
+  public EstacionamentoViewModel _viewModel
+  {
+    get
+    {
+      return (EstacionamentoViewModel)this.ViewModel;
+    }
   }
 
   override public void Notificar(string evento, string? argumento)
@@ -69,6 +74,15 @@ public class EstacionamentoView : ViewBase
       var viewModel = (EstacionamentoViewModel)this.ViewModel;
       viewModel.AtualizarPrecoInicial((decimal)precoInicial);
     }
+  }
+
+  public void ExibirPrecoInicial()
+  {
+    ConsoleWriter.WriteLine("Exibindo Preço Inicial");
+    ConsoleWriter.WriteLine("---");
+    var precoInicial = _viewModel.GetPrecoInicial();
+    ConsoleWriter.WriteLine($"R$: {precoInicial:N}", ConsoleColor.Cyan);
+    ConsoleWriter.WriteLine();
   }
 
   public void CadastrarVeiculo()
@@ -139,6 +153,8 @@ public class EstacionamentoView : ViewBase
   public void ListarVeiculos()
   {
     ConsoleWriter.WriteLine("Listando veículos");
+    ConsoleWriter.WriteLine("---");
+
     var viewModel = (EstacionamentoViewModel)this.ViewModel;
 
     var veiculos = viewModel.GetListVeiculos();

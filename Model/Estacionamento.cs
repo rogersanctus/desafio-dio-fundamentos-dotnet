@@ -1,4 +1,4 @@
-﻿namespace DesafioDioEstacionamento.Model;
+namespace DesafioDioEstacionamento.Model;
 
 using System.Collections.Generic;
 
@@ -25,6 +25,16 @@ public class Estacionamento
   public void SetPrecoInicial(decimal preco)
   {
     this.precoInicial = preco;
+  }
+
+  public decimal GetPrecoInicial()
+  {
+    if (this.precoInicial != null)
+    {
+      return (decimal)precoInicial;
+    }
+
+    throw new InvalidOperationException("Preço inicial não foi definido");
   }
 
   public void AdicionarVeiculo(Veiculo veiculo)

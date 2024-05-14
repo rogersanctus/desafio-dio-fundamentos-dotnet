@@ -40,10 +40,12 @@ while (!sair)
   Console.WriteLine("3 - Cadastrar veículo");
   Console.WriteLine("4 - Remover veículo");
   Console.WriteLine("5 - Listar veículos");
+  Console.WriteLine("6 - Exibir preço inicial configurado");
   Console.WriteLine("0 - Sair");
   Console.WriteLine();
 
   var input = Console.ReadLine();
+  Console.WriteLine();
 
   switch (input)
   {
@@ -64,6 +66,9 @@ while (!sair)
       break;
     case "5":
       estacionamentoView.ListarVeiculos();
+      break;
+    case "6":
+      estacionamentoView.ExibirPrecoInicial();
       break;
     default:
       ConsoleWriter.WriteLine("Opção Inválida", ConsoleColor.Red);
