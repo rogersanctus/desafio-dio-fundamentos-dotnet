@@ -172,7 +172,7 @@ public class EstacionamentoView : ViewBase
     {
       foreach (var veiculo in veiculos)
       {
-        ConsoleWriter.WriteLine($"Tipo: {veiculo.Tipo}  - Placa: {veiculo.Placa}");
+        ConsoleWriter.WriteLine($"Tipo: {veiculo.Tipo}  - Placa: {veiculo.Placa}", ConsoleColor.Cyan);
       }
     }
     else
