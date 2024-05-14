@@ -35,13 +35,17 @@ while (!sair)
   Console.WriteLine("Menu Principal");
   Console.WriteLine("---");
 
+  Console.WriteLine("# Configurações");
   Console.WriteLine("1 - Configurar Preco inicial");
   Console.WriteLine("2 - Configurar Tipo de Veículo");
-  Console.WriteLine("3 - Cadastrar Veículo");
-  Console.WriteLine("4 - Remover Veículo");
-  Console.WriteLine("5 - Listar Veículos");
-  Console.WriteLine("6 - Exibir Preço Inicial Configurado");
-  Console.WriteLine("7 - Listar Dados dos Tipos de Veículos");
+  Console.WriteLine("3 - Exibir Preço Inicial Configurado");
+  Console.WriteLine("4 - Listar Dados dos Tipos de Veículos");
+  Console.WriteLine();
+  Console.WriteLine("# Estacionamento");
+  Console.WriteLine("5 - Cadastrar Veículo");
+  Console.WriteLine("6 - Remover Veículo");
+  Console.WriteLine("7 - Listar Veículos");
+  Console.WriteLine();
   Console.WriteLine("0 - Sair");
   Console.WriteLine();
 
@@ -60,19 +64,19 @@ while (!sair)
       gerenteVeiculosView.ConfigurarTipoVeiculo();
       break;
     case "3":
-      estacionamentoView.CadastrarVeiculo();
-      break;
-    case "4":
-      estacionamentoView.RemoverVeiculo();
-      break;
-    case "5":
-      estacionamentoView.ListarVeiculos();
-      break;
-    case "6":
       estacionamentoView.ExibirPrecoInicial();
       break;
-    case "7":
+    case "4":
       gerenteVeiculosView.ListarDadosVeiculos();
+      break;
+    case "5":
+      estacionamentoView.CadastrarVeiculo();
+      break;
+    case "6":
+      estacionamentoView.RemoverVeiculo();
+      break;
+    case "7":
+      estacionamentoView.ListarVeiculos();
       break;
     default:
       ConsoleWriter.WriteLine("Opção Inválida", ConsoleColor.Red);
