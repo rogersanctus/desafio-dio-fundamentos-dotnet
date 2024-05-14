@@ -88,6 +88,7 @@ public class EstacionamentoView : ViewBase
   public void CadastrarVeiculo()
   {
     ConsoleWriter.WriteLine("Cadastrando veículo");
+    ConsoleWriter.WriteLine("---");
 
     Console.Write("Informe o tipo de veículo: ");
     var tipoVeiculo = Console.ReadLine();
@@ -124,6 +125,14 @@ public class EstacionamentoView : ViewBase
   public void RemoverVeiculo()
   {
     ConsoleWriter.WriteLine("Removendo veículo");
+    ConsoleWriter.WriteLine("---");
+
+    if (this._viewModel.GetListaVeiculos().Count == 0)
+    {
+      ConsoleWriter.WriteLine("Nenhum veículo estacionado", ConsoleColor.Cyan);
+      ConsoleWriter.WriteLine();
+      return;
+    }
 
     Console.Write("Informe o tempo em minutos em que o veículo ficou estacionado: ");
     var tempoEstacionamentoMinutos = Console.ReadLine();
