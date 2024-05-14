@@ -15,3 +15,13 @@ aumentar demais a complexidade. A estrutura do projeto é bem básica, embora ma
 - Listar e exibir todos os parâmetros
 - Acumular e exibir o saldo de caixa
 - O tempo de estacionamento perguntado durante a remoção de um veículo é dado em minutos ao invés de horas
+
+## Como executar o projeto?
+
+De dentro da **raiz** do projeto, rode o seguinte comando no seu **terminal**:
+
+```bash
+dotnet run --project Aplicacao
+```
+
+> É preciso ter o .NET 6.0 SDK instalado.
