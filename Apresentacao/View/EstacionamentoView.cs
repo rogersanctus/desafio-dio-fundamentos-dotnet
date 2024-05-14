@@ -99,6 +99,7 @@ public class EstacionamentoView : ViewBase
     if (string.IsNullOrEmpty(tipoVeiculo) || string.IsNullOrEmpty(placa))
     {
       ConsoleWriter.WriteLine("Tipo de veículo e placa devem ser informados", ConsoleColor.Red);
+      ConsoleWriter.WriteLine();
       return;
     }
 
@@ -115,6 +116,8 @@ public class EstacionamentoView : ViewBase
       if (ex is ArgumentException || ex is ArgumentNullException)
       {
         ConsoleWriter.WriteLine("Tipo de veículo inválido", ConsoleColor.Red);
+        ConsoleWriter.WriteLine();
+        return;
       }
 
       throw;
@@ -146,7 +149,8 @@ public class EstacionamentoView : ViewBase
 
       if (string.IsNullOrEmpty(placa))
       {
-        ConsoleWriter.WriteLine("Favor informar a placa do veículo", ConsoleColor.Yellow);
+        ConsoleWriter.WriteLine("Favor informar a placa do veículo", ConsoleColor.Red);
+        ConsoleWriter.WriteLine();
         return;
       }
 
@@ -156,6 +160,7 @@ public class EstacionamentoView : ViewBase
     catch (FormatException)
     {
       ConsoleWriter.WriteLine("Formato do tempo de estacionamento inválido. O valor precisa ser um número inteiro.", ConsoleColor.Red);
+      ConsoleWriter.WriteLine();
     }
   }
 
