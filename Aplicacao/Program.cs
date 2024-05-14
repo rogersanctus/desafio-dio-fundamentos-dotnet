@@ -45,6 +45,7 @@ while (!sair)
   Console.WriteLine("5 - Cadastrar Veículo");
   Console.WriteLine("6 - Remover Veículo");
   Console.WriteLine("7 - Listar Veículos");
+  Console.WriteLine("8 - Exibir Saldo de Caixa");
   Console.WriteLine();
   Console.WriteLine("0 - Sair");
   Console.WriteLine();
@@ -77,6 +78,9 @@ while (!sair)
       break;
     case "7":
       estacionamentoView.ListarVeiculos();
+      break;
+    case "8":
+      estacionamentoView.ExibirSaldoDeCaixa();
       break;
     default:
       ConsoleWriter.WriteLine("Opção Inválida", ConsoleColor.Red);

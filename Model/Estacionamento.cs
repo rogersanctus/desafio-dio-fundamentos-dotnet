@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class Estacionamento
 {
-  /// TODO: Implementar saldo do estacionamento, acumulando os custos para cada remoção de veículo
   private GerenteDadosVeiculo gerenteVeiculos;
   private List<Veiculo> veiculos = new List<Veiculo>();
   private decimal? precoInicial = null;
+  private decimal saldoDeCaixa = 0M;
 
   private bool Inicializado
   {
@@ -71,12 +71,19 @@ public class Estacionamento
 
     veiculos.Remove(veiculo);
 
+    this.saldoDeCaixa += custo;
+
     return custo;
   }
 
   public List<Veiculo> ListarVeiculos()
   {
     return this.veiculos;
+  }
+
+  public decimal GetSaldoDeCaixa()
+  {
+    return this.saldoDeCaixa;
   }
 
   private DadosVeiculo GetVeiculoPorTipoEValida(TipoVeiculo tipo)

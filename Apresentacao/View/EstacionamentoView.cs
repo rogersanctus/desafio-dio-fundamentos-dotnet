@@ -70,9 +70,7 @@ public class EstacionamentoView : ViewBase
 
     if (precoInicial != null)
     {
-      // viewModel.SetPrecoInicial(precoInicial);
-      var viewModel = (EstacionamentoViewModel)this.ViewModel;
-      viewModel.AtualizarPrecoInicial((decimal)precoInicial);
+      _viewModel.AtualizarPrecoInicial((decimal)precoInicial);
     }
   }
 
@@ -103,13 +101,11 @@ public class EstacionamentoView : ViewBase
       return;
     }
 
-    EstacionamentoViewModel viewModel = (EstacionamentoViewModel)this.ViewModel;
-
     try
     {
       TipoVeiculo tipo = Enum.Parse<TipoVeiculo>(tipoVeiculo);
       Veiculo veiculo = new Veiculo(tipo, placa);
-      viewModel.CadastrarVeiculo(veiculo);
+      _viewModel.CadastrarVeiculo(veiculo);
     }
     catch (Exception ex)
     {
@@ -154,8 +150,7 @@ public class EstacionamentoView : ViewBase
         return;
       }
 
-      EstacionamentoViewModel viewModel = (EstacionamentoViewModel)this.ViewModel;
-      viewModel.RemoverVeiculo(placa, tempoEstacionamento);
+      _viewModel.RemoverVeiculo(placa, tempoEstacionamento);
     }
     catch (FormatException)
     {
@@ -169,9 +164,7 @@ public class EstacionamentoView : ViewBase
     ConsoleWriter.WriteLine("Listando veículos");
     ConsoleWriter.WriteLine("---");
 
-    var viewModel = (EstacionamentoViewModel)this.ViewModel;
-
-    var veiculos = viewModel.GetListaVeiculos();
+    var veiculos = _viewModel.GetListaVeiculos();
 
     if (veiculos.Count > 0)
     {
@@ -185,6 +178,17 @@ public class EstacionamentoView : ViewBase
       ConsoleWriter.WriteLine("Nenhum veículo no estacionamento", ConsoleColor.Cyan);
     }
 
+    ConsoleWriter.WriteLine();
+  }
+
+  public void ExibirSaldoDeCaixa()
+  {
+    ConsoleWriter.WriteLine("Exibindo Saldo de Caixa");
+    ConsoleWriter.WriteLine("---");
+
+    var saldoDeCaixa = _viewModel.GetSaldoDeCaixa();
+
+    ConsoleWriter.WriteLine($"R$: {saldoDeCaixa:N}", ConsoleColor.Cyan);
     ConsoleWriter.WriteLine();
   }
 }

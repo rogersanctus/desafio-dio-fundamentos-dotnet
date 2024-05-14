@@ -54,4 +54,9 @@ public class EstacionamentoViewModel : ViewModelBase
   {
     return this.estacionamento.ListarVeiculos().AsReadOnly();
   }
+
+  public decimal GetSaldoDeCaixa()
+  {
+    return this.estacionamento.GetSaldoDeCaixa();
+  }
 }
