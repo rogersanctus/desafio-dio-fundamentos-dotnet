@@ -11,7 +11,7 @@ public class EstacionamentoView : ViewBase
   {
   }
 
-  public EstacionamentoViewModel _viewModel
+  private EstacionamentoViewModel _viewModel
   {
     get
     {

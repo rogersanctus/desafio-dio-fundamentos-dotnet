@@ -11,7 +11,7 @@ public class GerenteVeiculosView : ViewBase
   {
   }
 
-  public GerenteVeiculosViewModel _viewModel
+  private GerenteVeiculosViewModel _viewModel
   {
     get
     {
