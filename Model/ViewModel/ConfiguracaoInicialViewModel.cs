@@ -24,28 +24,16 @@ public class ConfiguracaoInicialViewModel : ViewModelBase
 
   public List<DadosVeiculo> GetDadosVeiculos()
   {
-    // return this.gerenteVeiculos.GetVeiculos();
     return this.gerenteVeiculosViewModel.GetVeiculos();
   }
 
   public void AtualizarVeiculo(TipoVeiculo tipo, decimal precoPorHora)
   {
     this.gerenteVeiculosViewModel.AtualizarVeiculo(tipo, precoPorHora);
-    // try
-    // {
-    //   this.gerenteVeiculos.AtualizarVeiculo(tipo, precoPorHora);
-    //   this.NotificarView("AtualizarVeiculo:Sucesso");
-    // }
-    // catch (InvalidOperationException ex)
-    // {
-    //   this.NotificarView("AtualizarVeiculo:Erro", ex.Message);
-    // }
   }
 
   public void AtualizarPrecoInicial(decimal preco)
   {
     this.estacionamentoViewModel.AtualizarPrecoInicial(preco);
-    // this.estacionamento.SetPrecoicial(preco);
-    // this.NotificarView("AtualizarPrecoicial:Sucesso");
   }
 }
