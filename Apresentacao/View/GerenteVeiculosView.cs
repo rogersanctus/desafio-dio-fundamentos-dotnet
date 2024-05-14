@@ -7,10 +7,16 @@ using DesafioDioEstacionamento.Lib.UI;
 
 public class GerenteVeiculosView : ViewBase
 {
-  /// TODO: Implementar a exibição dos dados de veículos que podem ser estacionados
-
   public GerenteVeiculosView(GerenteVeiculosViewModel viewModel) : base(viewModel)
   {
+  }
+
+  public GerenteVeiculosViewModel _viewModel
+  {
+    get
+    {
+      return (GerenteVeiculosViewModel)this.ViewModel;
+    }
   }
 
   public override void Notificar(string evento, string? argumento = null)
@@ -36,13 +42,24 @@ public class GerenteVeiculosView : ViewBase
 
   public void ConfigurarTipoVeiculo()
   {
-    var viewModel = (GerenteVeiculosViewModel)ViewModel;
-    List<DadosVeiculo> dadosVeiculos = viewModel.GetVeiculos();
+    List<DadosVeiculo> dadosVeiculos = _viewModel.GetVeiculos();
     var newDadoVeiculo = CommonView.ConfigurarTiposVeiculo(dadosVeiculos);
 
     if (newDadoVeiculo != null)
     {
-      viewModel.AtualizarVeiculo(newDadoVeiculo.Tipo, newDadoVeiculo.PrecoPorHora);
+      _viewModel.AtualizarVeiculo(newDadoVeiculo.Tipo, newDadoVeiculo.PrecoPorHora);
     }
   }
+
+  public void ListarDadosVeiculos()
+  {
+    ConsoleWriter.WriteLine("Listando dados dos tipos de veículos");
+    ConsoleWriter.WriteLine("---");
+
+    List<DadosVeiculo> dadosVeiculos = _viewModel.GetVeiculos();
+    dadosVeiculos.ForEach(CommonView.ExibirDadosVeiculo);
+
+    ConsoleWriter.WriteLine();
+  }
+
 }

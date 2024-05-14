@@ -55,10 +55,16 @@ public static class CommonView
 
   }
 
+  public static void ExibirDadosVeiculo(DadosVeiculo dadosVeiculo
+      )
+  {
+    ConsoleWriter.WriteLine($"Tipo: {(int)dadosVeiculo.Tipo} - Nome: {dadosVeiculo.Nome}, Preço por Hora: {dadosVeiculo.PrecoPorHora:N}", ConsoleColor.Cyan);
+  }
+
   public static void ListarDadosVeiculos(List<DadosVeiculo> dadosVeiculos)
   {
     ConsoleWriter.WriteLine("Veículos que podem ser estacionados:", ConsoleColor.Cyan);
-    dadosVeiculos.ForEach(veiculo => ConsoleWriter.WriteLine($"Tipo: {(int)veiculo.Tipo} - Nome: {veiculo.Nome}, Preço por Hora: {veiculo.PrecoPorHora}", ConsoleColor.Cyan));
+    dadosVeiculos.ForEach(CommonView.ExibirDadosVeiculo);
     ConsoleWriter.WriteLine();
 
   }

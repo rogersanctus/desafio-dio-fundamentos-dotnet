@@ -35,12 +35,13 @@ while (!sair)
   Console.WriteLine("Menu Principal");
   Console.WriteLine("---");
 
-  Console.WriteLine("1 - Configurar preco inicial");
-  Console.WriteLine("2 - Configurar veículo");
-  Console.WriteLine("3 - Cadastrar veículo");
-  Console.WriteLine("4 - Remover veículo");
-  Console.WriteLine("5 - Listar veículos");
-  Console.WriteLine("6 - Exibir preço inicial configurado");
+  Console.WriteLine("1 - Configurar Preco inicial");
+  Console.WriteLine("2 - Configurar Tipo de Veículo");
+  Console.WriteLine("3 - Cadastrar Veículo");
+  Console.WriteLine("4 - Remover Veículo");
+  Console.WriteLine("5 - Listar Veículos");
+  Console.WriteLine("6 - Exibir Preço Inicial Configurado");
+  Console.WriteLine("7 - Listar Dados dos Tipos de Veículos");
   Console.WriteLine("0 - Sair");
   Console.WriteLine();
 
@@ -69,6 +70,9 @@ while (!sair)
       break;
     case "6":
       estacionamentoView.ExibirPrecoInicial();
+      break;
+    case "7":
+      gerenteVeiculosView.ListarDadosVeiculos();
       break;
     default:
       ConsoleWriter.WriteLine("Opção Inválida", ConsoleColor.Red);
