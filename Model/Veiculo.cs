@@ -47,7 +47,6 @@ public class GerenteDadosVeiculo
       throw new InvalidOperationException("Tipo de veículo inválido");
     }
 
-    // this.tiposVeiculo[index] = newDados;
     dados.PrecoPorHora = precoPorHora;
     dados.Inicializado = true;
   }
