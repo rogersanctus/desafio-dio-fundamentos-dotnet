@@ -55,5 +55,15 @@ public class ConfiguracaoInicialView : ViewBase
         _viewModel.AtualizarVeiculo(Tipo, PrecoPorHora);
       }
     }
+
+    if (!_viewModel.IsDadosVeiculosInicializados)
+    {
+      ConsoleWriter.WriteLine("Um ou outro veículo não foi inicializado. Para conseguir operar o estacionamento, é necessário configurar todos os veículos.", ConsoleColor.Yellow);
+      ConsoleWriter.Write("Mas não se preocupe, na próxima tela, você pode configurar os veículos remanescentes na opção: ", ConsoleColor.Yellow);
+      ConsoleWriter.WriteLine("Configurar Tipo de Veículo.", ConsoleColor.Blue);
+      ConsoleWriter.Write("Você pode verificar os dados dos tipos de veiculos na opção: ", ConsoleColor.Yellow);
+      ConsoleWriter.WriteLine("Listar Dados dos Tipos de Veiculos.", ConsoleColor.Blue);
+      ConsoleWriter.WriteLine();
+    }
   }
 }

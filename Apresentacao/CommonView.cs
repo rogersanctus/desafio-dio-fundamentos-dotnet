@@ -56,10 +56,11 @@ public static class CommonView
     return new(tipoVeiculo, precoPorHora);
   }
 
-  public static void ExibirDadosVeiculo(DadosVeiculo dadosVeiculo
-      )
+  public static void ExibirDadosVeiculo(DadosVeiculo dadosVeiculo)
   {
-    ConsoleWriter.WriteLine($"Tipo: {(int)dadosVeiculo.Tipo} - Nome: {dadosVeiculo.Nome}, Preço por Hora: {dadosVeiculo.PrecoPorHora:N}", ConsoleColor.Cyan);
+    var inicializado = dadosVeiculo.Inicializado ? "(Inicializado)" : "(Não inicializado)";
+    ConsoleWriter.WriteLine($"Tipo: {(int)dadosVeiculo.Tipo} -> Nome: {dadosVeiculo.Nome}", ConsoleColor.Cyan);
+    ConsoleWriter.WriteLine($"\t-> Preço por Hora: {dadosVeiculo.PrecoPorHora:N} {inicializado}", ConsoleColor.Cyan);
   }
 
   public static void ListarDadosVeiculos(List<DadosVeiculo> dadosVeiculos)
