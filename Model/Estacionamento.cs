@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Estacionamento
 {
+  /// TODO: Adicionar regra para impedir adicionar veículos com a mesma placa
+
   private GerenteDadosVeiculo gerenteVeiculos;
   private List<Veiculo> veiculos = new List<Veiculo>();
   private decimal? precoInicial = null;

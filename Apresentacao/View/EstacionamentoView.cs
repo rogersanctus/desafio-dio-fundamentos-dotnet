@@ -7,6 +7,8 @@ using DesafioDioEstacionamento.ViewModel;
 
 public class EstacionamentoView : ViewBase
 {
+  /// TODO: Adicionar composição do custo após a remoção de um veiculo
+
   public EstacionamentoView(EstacionamentoViewModel viewModel) : base(viewModel)
   {
   }
