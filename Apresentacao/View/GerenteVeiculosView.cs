@@ -42,9 +42,10 @@ public class GerenteVeiculosView : ViewBase
     List<DadosVeiculo> dadosVeiculos = _viewModel.GetVeiculos();
     var newDadoVeiculo = CommonView.ConfigurarTiposVeiculo(dadosVeiculos);
 
-    if (newDadoVeiculo != null)
+    if (newDadoVeiculo.HasValue)
     {
-      _viewModel.AtualizarVeiculo(newDadoVeiculo.Tipo, newDadoVeiculo.PrecoPorHora);
+      var (Tipo, PrecoPorHora) = newDadoVeiculo.Value;
+      _viewModel.AtualizarVeiculo(Tipo, PrecoPorHora);
     }
   }
 

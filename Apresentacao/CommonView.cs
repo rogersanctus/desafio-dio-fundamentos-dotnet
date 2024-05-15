@@ -3,6 +3,8 @@ using DesafioDioEstacionamento.Model;
 
 namespace DesafioDioEstacionamento.View;
 
+public record struct VeiculoTipoPreco(TipoVeiculo Tipo, decimal PrecoPorHora);
+
 public static class CommonView
 {
   public static decimal? ConfigurarPrecoInicial()
@@ -32,7 +34,7 @@ public static class CommonView
     return precoInicial;
   }
 
-  public static DadosVeiculo? ConfigurarTipoVeiculo(TipoVeiculo tipoVeiculo)
+  public static VeiculoTipoPreco? ConfigurarTipoVeiculo(TipoVeiculo tipoVeiculo)
   {
     ConsoleWriter.Write("Informe o novo preço por hora: ");
     var precoPorHoraStr = Console.ReadLine();
@@ -51,8 +53,7 @@ public static class CommonView
       return null;
     }
 
-    return new DadosVeiculo(tipoVeiculo, "", precoPorHora);
-
+    return new(tipoVeiculo, precoPorHora);
   }
 
   public static void ExibirDadosVeiculo(DadosVeiculo dadosVeiculo
@@ -69,7 +70,7 @@ public static class CommonView
 
   }
 
-  public static DadosVeiculo? ConfigurarTiposVeiculo(List<DadosVeiculo> dadosVeiculos)
+  public static VeiculoTipoPreco? ConfigurarTiposVeiculo(List<DadosVeiculo> dadosVeiculos)
   {
     ConsoleWriter.WriteLine("Configurando dados dos tipos de veículo");
     ConsoleWriter.WriteLine();

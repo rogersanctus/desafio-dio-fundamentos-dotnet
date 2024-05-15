@@ -47,11 +47,12 @@ public class ConfiguracaoInicialView : ViewBase
 
       ConsoleWriter.WriteLine($"## Configurando dados de: {dadosVeiculos[i].Nome}");
 
-      DadosVeiculo? newDadoVeiculo = CommonView.ConfigurarTipoVeiculo(tipoVeiculo);
+      var newDadoVeiculo = CommonView.ConfigurarTipoVeiculo(tipoVeiculo);
 
-      if (newDadoVeiculo != null)
+      if (newDadoVeiculo.HasValue)
       {
-        _viewModel.AtualizarVeiculo(newDadoVeiculo.Tipo, newDadoVeiculo.PrecoPorHora);
+        var (Tipo, PrecoPorHora) = newDadoVeiculo.Value;
+        _viewModel.AtualizarVeiculo(Tipo, PrecoPorHora);
       }
     }
   }
